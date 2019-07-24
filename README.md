@@ -1,97 +1,154 @@
-<!-- AUTO-GENERATED-CONTENT:START (STARTER) -->
 <p align="center">
-  <a href="https://www.gatsbyjs.org">
-    <img alt="Gatsby" src="https://www.gatsbyjs.org/monogram.svg" width="60" />
+  <a href="https://gatsby-theme-blog-remix-demo.netlify.com">
+    <img alt="Gatsby" src="./content/assets/logo.svg" width="60" />
   </a>
 </p>
 <h1 align="center">
-  Gatsby's hello-world starter
+  The Gatsby blog theme <i>Remixed</i>
 </h1>
 
-Kick off your project with this hello-world boilerplate. This starter ships with the main Gatsby configuration files you might need to get up and running blazing fast with the blazing fast app generator for React.
+![screenshot](theme-screenshot.png)
 
-_Have another more specific idea? You may want to check out our vibrant collection of [official and community-created starters](https://www.gatsbyjs.org/docs/gatsby-starters/)._
+A remix of the classic Gatsby Blog Theme.
 
-## 🚀 Quick start
+## Why this theme?
 
-1.  **Create a Gatsby site.**
+This theme took the tried and true Gatsby Theme Blog and added a splash of style and color. This theme does not do anything ground breaking but it is a great jumping off point. The theme's components are all easily shadowable, and have been themed by theme-ui to make the customization of easy as possible.
 
-    Use the Gatsby CLI to create a new site, specifying the hello-world starter.
+### Features
 
-    ```sh
-    # create a new Gatsby site using the hello-world starter
-    gatsby new my-hello-world-starter https://github.com/gatsbyjs/gatsby-starter-hello-world
-    ```
+- Theme-ui
+- Easy to shadow components
+- Pre-built name-spaced component shadowing folder
+- Light and Darkmode
+- MDX support
+- Desktop and Mobile Navigation component
+- Portals
 
-1.  **Start developing.**
+## Installation
 
-    Navigate into your new site’s directory and start it up.
+### Use the blog remixed theme starter in a new site
 
-    ```sh
-    cd my-hello-world-starter/
-    gatsby develop
-    ```
+This will generate a new site that pre-configures use of the blog theme.
 
-1.  **Open the source code and start editing!**
+```sh
+gatsby new my-themed-blog https://github.com/joshatoutthink/gatsby-theme-blog-remix-demo
+```
 
-    Your site is now running at `http://localhost:8000`!
+### Manually add to your site
 
-    _Note: You'll also see a second link: _`http://localhost:8000/___graphql`_. This is a tool you can use to experiment with querying your data. Learn more about using this tool in the [Gatsby tutorial](https://www.gatsbyjs.org/tutorial/part-five/#introducing-graphiql)._
+```sh
+npm install --save @joshkennedy00/gatsby-theme-blog-remix
+```
 
-    Open the `my-hello-world-starter` directory in your code editor of choice and edit `src/pages/index.js`. Save your changes and the browser will update in real time!
+## Usage
 
-## 🧐 What's inside?
+### Theme options
 
-A quick look at the top-level files and directories you'll see in a Gatsby project.
+| Key           | Default value     | Description                                                                                               |
+| ------------- | ----------------- | --------------------------------------------------------------------------------------------------------- |
+| `basePath`    | `/`               | Root url for all blog posts                                                                               |
+| `contentPath` | `/content/posts`  | Location of blog posts                                                                                    |
+| `assetPath`   | `/content/assets` | Location of assets                                                                                        |
+| `mdx`         | `true`            | Configure `gatsby-plugin-mdx` (if your website already is using the plugin pass `false` to turn this off) |
 
-    .
-    ├── node_modules
-    ├── src
-    ├── .gitignore
-    ├── .prettierrc
-    ├── gatsby-browser.js
-    ├── gatsby-config.js
-    ├── gatsby-node.js
-    ├── gatsby-ssr.js
-    ├── LICENSE
-    ├── package-lock.json
-    ├── package.json
-    └── README.md
+---
 
-1.  **`/node_modules`**: This directory contains all of the modules of code that your project depends on (npm packages) are automatically installed.
+#### Example usage
 
-2.  **`/src`**: This directory will contain all of the code related to what you will see on the front-end of your site (what you see in the browser) such as your site header or a page template. `src` is a convention for “source code”.
+```js
+// gatsby-config.js
+module.exports = {
+  plugins: [
+    {
+      resolve: `gatsby-theme-blog`,
+      options: {
+        // basePath defaults to `/`
+        basePath: `/blog`,
+      },
+    },
+  ],
+}
+```
 
-3.  **`.gitignore`**: This file tells git which files it should not track / not maintain a version history for.
+---
 
-4.  **`.prettierrc`**: This is a configuration file for [Prettier](https://prettier.io/). Prettier is a tool to help keep the formatting of your code consistent.
+### Additional configuration
 
-5.  **`gatsby-browser.js`**: This file is where Gatsby expects to find any usage of the [Gatsby browser APIs](https://www.gatsbyjs.org/docs/browser-apis/) (if any). These allow customization/extension of default Gatsby settings affecting the browser.
+#### Site Metadata
 
-6.  **`gatsby-config.js`**: This is the main configuration file for a Gatsby site. This is where you can specify information about your site (metadata) like the site title and description, which Gatsby plugins you’d like to include, etc. (Check out the [config docs](https://www.gatsbyjs.org/docs/gatsby-config/) for more detail).
+In addition to the theme options, there are a handful of items you can customize via the `siteMetadata` object in your site's `gatsby-config.js`
 
-7.  **`gatsby-node.js`**: This file is where Gatsby expects to find any usage of the [Gatsby Node APIs](https://www.gatsbyjs.org/docs/node-apis/) (if any). These allow customization/extension of default Gatsby settings affecting pieces of the site build process.
+```js
+// gatsby-config.js
+module.exports = {
+  siteMetadata: {
+    // Used for the site title and SEO
+    title: `Gatsby Theme Remix`,
+    // Used to provide alt text for your avatar
+    author: `Josh Kennedy`,
+    //used in the post footer
+    shortBio: `a web designer and developer.`,
+    // Used for SEO
+    description: `This is a remix of the theme Gatsby Theme Blog. Changed some styling, added some components, also made extra comments to make extending this theme easier`,
+    // Used for social links in the root footer
+    social: [
+      {
+        name: `twitter`,
+        url: `https://twitter.com/JoshKen08672181`,
+      },
+      {
+        name: `github`,
+        url: `https://github.com/joshatoutthink`,
+      },
+    ],
+  },
+}
+```
 
-8.  **`gatsby-ssr.js`**: This file is where Gatsby expects to find any usage of the [Gatsby server-side rendering APIs](https://www.gatsbyjs.org/docs/ssr-apis/) (if any). These allow customization of default Gatsby settings affecting server-side rendering.
+#### Images
 
-9.  **`LICENSE`**: Gatsby is licensed under the MIT license.
+this theme comes with the option to add:
 
-10. **`package-lock.json`** (See `package.json` below, first). This is an automatically generated file based on the exact versions of your npm dependencies that were installed for your project. **(You won’t change this file directly).**
+- site logo
+- author avatar
 
-11. **`package.json`**: A manifest file for Node.js projects, which includes things like metadata (the project’s name, author, etc). This manifest is how npm knows which packages to install for your project.
+##### Site logo
 
-12. **`README.md`**: A text file containing useful reference information about your project.
+- Place a svg, jpg, or png named _logo_ in the assets folder.
 
-## 🎓 Learning Gatsby
+- There is also the option to add a darkmode version of the logo. To add this logo maker sure to name it _logo-dark_.
 
-Looking for more guidance? Full documentation for Gatsby lives [on the website](https://www.gatsbyjs.org/). Here are some places to start:
+##### Author Avatar
 
-- **For most developers, we recommend starting with our [in-depth tutorial for creating a site with Gatsby](https://www.gatsbyjs.org/tutorial/).** It starts with zero assumptions about your level of ability and walks through every step of the process.
+- Place a jpg, or png named avatar in the assets folder.
 
-- **To dive straight into code samples, head [to our documentation](https://www.gatsbyjs.org/docs/).** In particular, check out the _Guides_, _API Reference_, and _Advanced Tutorials_ sections in the sidebar.
+## Customize Components
 
-## 💫 Deploy
+this theme's layout uses theme-ui's layout components. Within those components exists modular components that makes it easy to shadow, and create your own remix.
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gatsbyjs/gatsby-starter-hello-world)
+### Theme-ui
 
-<!-- AUTO-GENERATED-CONTENT:END -->
+[ add theme-ui docs and example ]
+
+### Shadowing a Component
+
+To shadow a component or edit the components from this theme you copy the component into your site with this folder structure:
+
+```
+./src/THEMENAME/components
+```
+
+However this theme Prebuilds a name-spaced folder in your source folder for you. All you have to do is paste in the components into the prebuild name-spaced components folder. All maker all paths reference other compents change from
+
+```JS
+import Navigation from './Navigation'
+```
+
+to
+
+```JS
+import { Navigation } from '@joshkennedy00/gatsby-theme-blog-remix'
+```
+
+once the component is copied over you can delete, add, and edit till you are blue in the face.
