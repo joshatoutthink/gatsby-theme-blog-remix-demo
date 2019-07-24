@@ -12,7 +12,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
   },
   "dependencies": {
-    "@joshkennedy00/gatsby-theme-blog-remix": "*",
+    "@joshkennedy00/gatsby-theme-blog-remix": "^1.0.7",
     "@stefanprobst/lokijs": "^1.5.6-b",
     "gatsby": "^2.13.2",
     "gatsby-plugin-manifest": "^2.2.3",
